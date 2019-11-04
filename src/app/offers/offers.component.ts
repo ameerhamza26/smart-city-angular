@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from '../services/user.service'
 import { ToastrService } from 'ngx-toastr';
+import { environment} from '../../environments/environment'
 
 @Component({
   selector: 'app-offers',
@@ -9,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OffersComponent implements OnInit {
 
+  fileServerUrl = environment.fileServer;
   constructor(private userService: UserService,
     private toastr: ToastrService) { }
 

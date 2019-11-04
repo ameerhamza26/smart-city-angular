@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MyModalComponent } from './map-modal'
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,7 @@ export class DashboardComponent implements OnInit {
   name: string;
   color: string;
 
+  fileServerUrl = environment.fileServer;
   constructor(private userService: UserService,
     public dialog: MatDialog,
     private mapsAPILoader: MapsAPILoader,) { }

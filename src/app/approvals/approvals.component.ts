@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { environment } from '../../environments/environment'
 
 @Component({
     selector: 'app-approvals',
@@ -20,6 +21,7 @@ export class ApprovalsComponent implements OnInit {
     posts = new Array();
     user : any;
     approvalPosts : any;
+    fileServerUrl = environment.fileServer
     ngOnInit() {
         this.user = JSON.parse(this.userService.getCurrentUser()) 
         this.userService.currentUser.subscribe(user => {

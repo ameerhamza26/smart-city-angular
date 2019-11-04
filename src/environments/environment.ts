@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:8001'
+  api_url: 'http://localhost:8001',
+  fileServer: 'http://192.168.56.1:8081/'
 };

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
+import { environment } from '../../../environments/environment'
 
 declare const $: any;
 declare interface RouteInfo {
@@ -33,7 +34,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems = new Array();
-
+  fileServerUrl = environment.fileServer
   constructor(
     private userService: UserService
   ) { }
@@ -59,7 +60,7 @@ export class SidebarComponent implements OnInit {
     })
 
     if (this.user && this.user.details && this.user.details.image) {
-      this.image = 'http://192.168.56.1:8081/' + this.user.details.image
+      this.image = this.fileServerUrl + this.user.details.image
     }
     
     for (let menuItem of ROUTES) {

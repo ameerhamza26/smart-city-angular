@@ -450,7 +450,7 @@
               <!--/ dropdown -->
 			  <div class="media m-0">
 			   <div class="d-flex mr-3">
-				<a href=""><img class="img-fluid rounded-circle" src="{{post.creator.image ? ('http://192.168.56.1:8081/' + post.creator.image) : './assets/img/profile-default.jpg'}}" alt="User"></a>
+				<a href=""><img class="img-fluid rounded-circle" src="{{post.creator.image ? (fileServerUrl + post.creator.image) : './assets/img/profile-default.jpg'}}" alt="User"></a>
 			   </div>
 			   <div class="media-body">
                 <p class="m-0">{{post.creator.firstName}} {{post.creator.lastName}}</p>
@@ -468,14 +468,14 @@
              </div>
 			 <div class="cardbox-item" style="height: 400px;">
                  
-              <img class="img-fluid" src="{{'http://192.168.56.1:8081/' + post.imageBefore}}" alt="Image" style="height: 100%; width: 100%;">
+              <img class="img-fluid" src="{{fileServerUrl + post.imageBefore}}" alt="Image" style="height: 100%; width: 100%;">
               
              </div><!--/ cardbox-item -->
              
              
              <div class="cardbox-item" style="height: 400px;">
                  
-                <img class="img-fluid" src="{{'http://192.168.56.1:8081/' + post.imageAfter}}" alt="Image" style="height: 100%; width: 100%;">
+                <img class="img-fluid" src="{{fileServerUrl + post.imageAfter}}" alt="Image" style="height: 100%; width: 100%;">
                 
                </div><!--/ cardbox-item -->
 
@@ -499,7 +499,7 @@
 			  <ul>
                <!-- <li><a><i class="fa fa-thumbs-up"></i></a></li> -->
                <li *ngFor="let app of post.approvers">
-                    <a href="#"><img src="{{ app.image ? ('http://192.168.56.1:8081/' + app.image) : './assets/img/profile-default.jpg'}}" class="img-fluid rounded-circle" alt="User"></a>
+                    <a href="#"><img src="{{ app.image ? (fileServerUrl + app.image) : './assets/img/profile-default.jpg'}}" class="img-fluid rounded-circle" alt="User"></a>
                </li>
 			   <li><a><span>{{post.approvers.length}} Approvers | {{post.approvalCount || 0}} Approvals</span></a></li>
 			  </ul>			   
