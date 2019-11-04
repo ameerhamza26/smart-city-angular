@@ -4,31 +4,48 @@
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Simple Table</h4>
-                      <p class="card-category"> Here is a subtitle for this table</p>
+                      <h4 class="card-title ">Users</h4>
+                      <p class="card-category">This list shows blockchain users</p>
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
                           <table class="table">
                               <thead class=" text-primary">
                                   <th>
-                                      ID
+                                      Blockchain account 
                                   </th>
                                   <th>
                                       Name
                                   </th>
                                   <th>
-                                      Country
+                                      Email
                                   </th>
                                   <th>
-                                      City
+                                      Role
                                   </th>
                                   <th>
-                                      Salary
+                                      Points
                                   </th>
                               </thead>
                               <tbody>
-                                  <tr>
+                                  <tr *ngFor="let user of users">
+                                      <td>
+                                          {{user.details.blockchainAccountId}}
+                                      </td>
+                                      <td>
+                                          {{user.details.firstName}} {{user.details.lastName}}
+                                      </td>
+                                      <td>
+                                            {{user.details.email}}
+                                      </td>
+                                      <td>
+                                            {{user.details.role}}
+                                      </td>
+                                      <td>
+                                          {{user.points}}
+                                      </td>
+                                  </tr>
+                                  <!-- <tr>
                                       <td>
                                           1
                                       </td>
@@ -129,14 +146,14 @@
                                       <td class="text-primary">
                                           $78,615
                                       </td>
-                                  </tr>
+                                  </tr> -->
                               </tbody>
                           </table>
                       </div>
                   </div>
               </div>
           </div>
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
               <div class="card card-plain">
                   <div class="card-header card-header-danger">
                       <h4 class="card-title mt-0"> Table on Plain Background</h4>
@@ -270,7 +287,7 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
       </div>
   </div>
 </div>

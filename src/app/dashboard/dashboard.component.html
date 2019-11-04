@@ -1,4 +1,4 @@
-<div class="main-content">
+<!-- <div class="main-content">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -412,4 +412,173 @@
           </div>
       </div>
   </div>
-</div>
+</div> -->
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+		<link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet"> 
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	
+	    <!-- ==============================================
+	    Hero
+	    =============================================== -->
+        <section class="hero" >
+         <div class="container">
+          <div class="row" >	
+          
+                <div class="col-lg-2">
+                </div>
+		   <div class="col-lg-7">
+			
+			<div class="cardbox shadow-lg bg-white" *ngFor="let post of posts.slice().reverse() ">
+			 
+			 <div class="cardbox-heading">
+			  <!-- START dropdown-->
+			  <!-- <div class="dropdown float-right">
+			   <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+				<em class="fa fa-ellipsis-h"></em>
+			   </button>
+			   <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+				<a class="dropdown-item" href="#" (click)="openDialog()">Show on map</a>
+			   </div>
+              </div> -->
+              <!--/ dropdown -->
+			  <div class="media m-0">
+			   <div class="d-flex mr-3">
+				<a href=""><img class="img-fluid rounded-circle" src="{{post.creator.image ? ('http://192.168.56.1:8081/' + post.creator.image) : './assets/img/profile-default.jpg'}}" alt="User"></a>
+			   </div>
+			   <div class="media-body">
+                <p class="m-0">{{post.creator.firstName}} {{post.creator.lastName}}</p>
+
+				<!-- <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
+				<small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small> -->
+			   </div>
+			  </div><!--/ media -->
+			 </div><!--/ cardbox-heading -->
+              
+             <div style="margin-left: 20px;font-family: 'Rokkitt', serif;	
+             font-weight: 500 !important;
+             font-size: 14px;">
+                    <p class="m-0">{{post.postType.title}} - {{post.description}}</p>
+             </div>
+			 <div class="cardbox-item" style="height: 400px;">
+                 
+              <img class="img-fluid" src="{{'http://192.168.56.1:8081/' + post.imageBefore}}" alt="Image" style="height: 100%; width: 100%;">
+              
+             </div><!--/ cardbox-item -->
+             
+             
+             <div class="cardbox-item" style="height: 400px;">
+                 
+                <img class="img-fluid" src="{{'http://192.168.56.1:8081/' + post.imageAfter}}" alt="Image" style="height: 100%; width: 100%;">
+                
+               </div><!--/ cardbox-item -->
+
+               <div class="cardbox-item">
+                <agm-map 
+                [latitude]="+post.location.latitude" 
+                [longitude]="+post.location.longitude" 
+                [zoom]="14" >
+                <agm-marker 
+                [latitude]="post.location.latitude" 
+                [longitude]="post.location.longitude"  [markerDraggable]="false"></agm-marker>
+                </agm-map>
+             </div>
+			 <div class="cardbox-base">
+			  <!-- <ul class="float-right">
+			   <li><a><i class="fa fa-comments"></i></a></li>
+			   <li><a><em class="mr-5">12</em></a></li>
+			   <li><a><i class="fa fa-share-alt"></i></a></li>
+			   <li><a><em class="mr-3">03</em></a></li>
+			  </ul> -->
+			  <ul>
+               <!-- <li><a><i class="fa fa-thumbs-up"></i></a></li> -->
+               <li *ngFor="let app of post.approvers">
+                    <a href="#"><img src="{{ app.image ? ('http://192.168.56.1:8081/' + app.image) : './assets/img/profile-default.jpg'}}" class="img-fluid rounded-circle" alt="User"></a>
+               </li>
+			   <li><a><span>{{post.approvers.length}} Approvers | {{post.approvalCount || 0}} Approvals</span></a></li>
+			  </ul>			   
+			 </div><!--/ cardbox-base -->
+			 <!-- <div class="cardbox-comments">
+			  <span class="comment-avatar float-left">
+			   <a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>                            
+			  </span>
+			  <div class="search">
+			   <input placeholder="Write a comment" type="text">
+			   <button><i class="fa fa-camera"></i></button>
+			  </div>
+			 </div> -->
+					
+			</div><!--/ cardbox -->
+
+           </div><!--/ col-lg-6 -->	
+    
+           <!-- <div class="col-lg-6">
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-danger">
+                                    <h4 class="card-title">Deals & offers</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form enctype="multipart/form-data"  (ngSubmit)="submitForm()">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <mat-form-field class="example-full-width">
+                                                  <input  matInput placeholder="Title">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+            
+                                                <mat-form-field class="example-full-width">
+                                                   <textarea matInput placeholder="Description"></textarea>
+                                                 </mat-form-field>
+                                                    
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                    <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Location" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+                                                    </mat-form-field>
+                                                    
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                        
+                                                                <input  name ="images" placeholder="Picture" type="file" multiple (change)="onFileSelect($event)" >
+                                                        
+                                                        
+                                                </div>
+                                            </div>
+                                        
+            
+                                    
+                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+              
+           </div> -->
+			
+          </div><!--/ row -->
+         </div><!--/ container -->
+        </section>

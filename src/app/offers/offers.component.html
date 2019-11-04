@@ -1,0 +1,49 @@
+
+        <section class="hero" >
+                <div class="container">
+                 <div class="row" >	
+                 
+                       <div class="col-lg-2">
+                       </div>
+
+<div class="col-lg-8">
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row" *ngFor="let offer of deals" >
+                    <div class="col-md-12" *ngIf="offer.brand">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">{{offer.offer.offer}} on {{offer.offer.points}} points</h4>
+                            </div>
+                            <div class="card-body">
+
+                                    <div class="media m-0">
+                                            <div class="d-flex mr-3">
+                                             <a href=""><img class="img-fluid rounded-circle" src="{{offer.brand.logo ? ('http://192.168.56.1:8081/' + offer.brand.logo) : './assets/img/profile-default.jpg'}}" alt="User"></a>
+                                            </div>
+                                            <div class="media-body">
+                                             <p class="m-0">{{offer.brand.name}} </p>
+                                             <p class="m-0">{{offer.brand.description}} </p>
+                                             <!-- <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
+                                             <small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small> -->
+                                            </div>
+                                           </div><!--/ media -->
+
+                                           <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="avail(offer.offer.id)">Avail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+          
+       </div>
+       </div>
+       </div>
+        </section>
+
+
+        <app-progress-spinner-two class="example-margin" [color]="color" [mode]="mode" [value]="value" [backdropEnabled]="true" [positionGloballyCenter]="true"
+        [displayProgressSpinner]="displayProgressSpinner">
+       </app-progress-spinner-two>

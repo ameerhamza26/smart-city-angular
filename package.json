@@ -1,5 +1,5 @@
 {
-  "name": "material-dashboard-angular",
+  "name": "smart-city-application",
   "version": "2.3.0",
   "license": "MIT",
   "scripts": {
@@ -18,7 +18,7 @@
   "private": true,
   "dependencies": {
     "@agm/core": "1.0.0-beta.6",
-    "@angular/animations": "8.0.0",
+    "@angular/animations": "^8.0.0",
     "@angular/cdk": "8.0.1",
     "@angular/common": "8.0.0",
     "@angular/compiler": "8.0.0",
@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "8.0.0",
     "@angular/platform-server": "8.0.0",
     "@angular/router": "8.0.0",
+    "@types/googlemaps": "^3.36.4",
     "ajv": "6.10.0",
     "arrive": "2.4.1",
     "bootstrap": "4.3.1",
@@ -43,6 +44,8 @@
     "hammerjs": "2.0.8",
     "jquery": "3.4.1",
     "moment": "2.24.0",
+    "ngx-google-places-autocomplete": "^2.0.4",
+    "ngx-toastr": "^11.1.2",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.15.0",
     "rxjs": "6.5.2",

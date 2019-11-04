@@ -10,6 +10,20 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
+import {LoginComponent } from './login/login.component'
+import { SignupComponent }  from './signup/signup.component'
+import { VerifyEmailComponent } from './verify-email/verify-email.component'
+import {ApiService } from './services/api.service';
+import { JwtService} from './services/jwt.service'
+import { UserService } from './services/user.service'
+ 
+import { ToastrModule } from 'ngx-toastr';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AppOverlayModule } from './overlay/overlay.module';
+import { ProgressSpinnerModule  } from './progress-spinner/progress-spinner.module';
+import { ProgressSpinnerComponent} from './progress-spinner/progress-spinner.component'
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
@@ -23,25 +37,53 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatTooltipModule,
+  MatSelectModule,
+  MatProgressSpinnerModule,
+} from '@angular/material';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     HttpModule,
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    MatButtonModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
+    AppOverlayModule,
+    ProgressSpinnerModule,
+    MatProgressSpinnerModule
   ],
+  entryComponents: [AppComponent,ProgressSpinnerComponent],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    SignupComponent,
+    ProgressSpinnerComponent,
+    VerifyEmailComponent
 
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    JwtService,
+    UserService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

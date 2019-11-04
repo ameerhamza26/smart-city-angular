@@ -3,7 +3,7 @@
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-red.png"/>
         </div>
-        Creative Tim
+        Smart city
     </a>
 </div>
 <div class="sidebar-wrapper">
@@ -53,7 +53,21 @@
             </a>
         </li>
     </ul>
-  </div>
+  </div>    
+  <div class="col-md-12">
+        <div class="card card-profile" style="margin-top: 70px;">
+            <div class="card-avatar">
+                <a href="javascript:void(0)">
+                    <img class="img"  [src]="image" />
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-category text-gray">{{user.details.firstName}} {{user.details.lastName}}</h6>
+                <h4 class="card-title">{{user.points}} points</h4>
+                <!-- <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a> -->
+            </div>
+        </div>
+    </div>
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">

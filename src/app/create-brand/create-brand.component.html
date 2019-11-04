@@ -1,0 +1,128 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Create Brand</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="postForm" enctype="multipart/form-data"  >
+                            <div class="row">
+                                    <div class="col-md-12">
+                                    <mat-form-field>
+                                            <mat-label>Type</mat-label>
+                                    
+                                        
+                                            <select formControlName="type" matNativeControl required>
+                                                <option value="Food">Food</option>
+                                                <option value="Clothes">Clothes</option>
+                                                <option value="Electronics">Electronics</option>
+                                            </select>
+                                            
+                                    </mat-form-field>
+                                    <p *ngIf="selectedActivity && selectedActivity.description">{{selectedActivity.description}}</p>
+                                </div>
+                            </div>
+                              
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <mat-form-field class="example-full-width">
+                                       <textarea matInput formControlName="name" placeholder="Name"></textarea>
+                                     </mat-form-field>
+                                        
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <mat-form-field class="example-full-width">
+                                       <textarea matInput formControlName="description" placeholder="Description"></textarea>
+                                     </mat-form-field>
+                                        
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <mat-form-field class="example-full-width">
+                                                <input matInput formControlName="location" placeholder="Location"   (keydown.enter)="$event.preventDefault()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search/>
+                                        </mat-form-field>
+                                        
+                                </div>
+                            </div>
+
+
+                            <agm-map 
+                                [latitude]="latitude" 
+                                [longitude]="longitude" 
+                                [zoom]="zoom" >
+                                <agm-marker 
+                                [latitude]="latitude" 
+                                [longitude]="longitude"  [markerDraggable]="true"
+      (dragEnd)="markerDragEnd($event)"></agm-marker>
+                                </agm-map>
+
+                            <!-- <div class="row">
+                                    <div class="col-md-12">
+                                        <mat-label>Role</mat-label>
+                                    <input  formControlName="images" name ="images" placeholder="Picture" accept='image/*' type="file" (change)="onFileSelect($event)" >
+                                            
+                                            
+                                    </div>
+                                </div> -->
+
+                                <div class="row">
+                                        <div class="col-md-12">
+                                                <button mat-raised-button class="btn" (click)="fileInputOne.click()">
+                                        
+                                                        <span>logo</span>
+                                                        <input #fileInputOne formControlName="logo" name ="logo" placeholder="Picture" accept='image/*' type="file" (change)="onFileSelectOne($event)" style="display: none;" >
+                                                      </button>
+                                        </div>
+
+                                </div>
+
+                                <div class="row" *ngIf="imgURLOne">
+                                        <div class="col-md-12">
+                                                <img [src]="imgURLOne" height="200" *ngIf="imgURLOne">
+                                        </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <mat-form-field class="example-full-width">
+                                          <input formControlName="email" matInput placeholder="Email address" type="email">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <mat-form-field class="example-full-width">
+                                        <input formControlName="firstName" matInput placeholder="Fist Name" type="text">
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput formControlName="lastName" placeholder="Last Name" type="text">
+                                      </mat-form-field>
+                                    </div>
+                                </div>
+
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="submitForm()">Save</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+              
+  <app-progress-spinner-two class="example-margin" [color]="color" [mode]="mode" [value]="value" [backdropEnabled]="true" [positionGloballyCenter]="true"
+  [displayProgressSpinner]="displayProgressSpinner">
+ </app-progress-spinner-two>
